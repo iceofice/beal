@@ -1,4 +1,5 @@
 import { StyleSheet, Dimensions } from "react-native";
+
 import colors from "../../assets/colors/colors";
 
 const windowWidth = Dimensions.get("window").width;
@@ -38,7 +39,7 @@ const styles = StyleSheet.create({
 	},
 	description: {
 		color: colors.textLight,
-		fontFamily: "Mulish_Light",
+		fontFamily: "Mulish_300Light",
 		fontSize: 18,
 	},
 	primaryButton: {
@@ -59,7 +60,7 @@ const styles = StyleSheet.create({
 	},
 	buttonText: {
 		textAlign: "center",
-		fontFamily: "Mulish_Bold",
+		fontFamily: "Mulish_700Bold",
 		fontSize: 16,
 		color: colors.text,
 	},
