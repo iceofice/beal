@@ -15,7 +15,6 @@ const styles = StyleSheet.create({
 		width: "100%",
 		resizeMode: "contain",
 		marginBottom: 30,
-		backgroundColor: "#000",
 	},
 	imageWrapper: {
 		flex: 3,
@@ -23,13 +22,7 @@ const styles = StyleSheet.create({
 		aspectRatio: 1 / 1,
 		alignItems: "center",
 		justifyContent: "center",
-		backgroundColor: "#000",
 		marginBottom: 30,
-	},
-	buttonWrapper: {
-		flex: 1,
-		justifyContent: "flex-end",
-		backgroundColor: "#000",
 	},
 
 	slogan: {
@@ -38,10 +31,10 @@ const styles = StyleSheet.create({
 		fontSize: 24,
 	},
 	landingPageImage: {
-		height: "75%",
-		aspectRatio: 5 / 4,
-		resizeMode: "center",
+		height: "60%",
+		resizeMode: "contain",
 		marginVertical: 15,
+		marginHorizontal: 15,
 	},
 	description: {
 		color: colors.textLight,

@@ -25,14 +25,12 @@ const LandingPage = () => {
 					/>
 					<Text style={styles.description}>Let’s begin your barter journey!</Text>
 				</View>
-				<View style={styles.buttonWrapper}>
-					<TouchableOpacity style={styles.primaryButton}>
-						<Text style={styles.buttonText}>Register</Text>
-					</TouchableOpacity>
-					<TouchableOpacity style={styles.secondaryButton}>
-						<Text style={styles.buttonText}>Login</Text>
-					</TouchableOpacity>
-				</View>
+				<TouchableOpacity style={styles.primaryButton}>
+					<Text style={styles.buttonText}>Register</Text>
+				</TouchableOpacity>
+				<TouchableOpacity style={styles.secondaryButton}>
+					<Text style={styles.buttonText}>Login</Text>
+				</TouchableOpacity>
 			</SafeAreaView>
 		);
 	}
