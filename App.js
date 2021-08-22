@@ -1,4 +1,5 @@
 import React from "react";
+import { Text } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { useFonts, Mulish_300Light, Mulish_700Bold } from "@expo-google-fonts/mulish";
@@ -13,7 +14,7 @@ export default function App() {
 		Mulish_700Bold,
 	});
 	if (!fontsLoaded) {
-		return; //Add App Loader
+		return <Text> Error </Text>; //Add App Loader
 	} else {
 		return (
 			<NavigationContainer>

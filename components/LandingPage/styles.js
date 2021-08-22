@@ -1,8 +1,6 @@
-import { StyleSheet, Dimensions } from "react-native";
+import { StyleSheet } from "react-native";
 
 import colors from "../../assets/colors/colors";
-
-const windowWidth = Dimensions.get("window").width;
 
 const styles = StyleSheet.create({
 	container: {
@@ -28,7 +26,7 @@ const styles = StyleSheet.create({
 
 	slogan: {
 		color: colors.textLight,
-		fontFamily: "Mulish_Light",
+		fontFamily: "Mulish_300Light",
 		fontSize: 24,
 	},
 	landingPageImage: {
@@ -41,28 +39,6 @@ const styles = StyleSheet.create({
 		color: colors.textLight,
 		fontFamily: "Mulish_300Light",
 		fontSize: 18,
-	},
-	primaryButton: {
-		borderRadius: 31.5,
-		backgroundColor: colors.primary,
-		width: windowWidth / 2.5,
-		aspectRatio: 4 / 1,
-		justifyContent: "center",
-		marginBottom: 15,
-	},
-	secondaryButton: {
-		borderRadius: 31.5,
-		borderWidth: 2,
-		borderColor: colors.primary,
-		width: windowWidth / 2.5,
-		aspectRatio: 4 / 1,
-		justifyContent: "center",
-	},
-	buttonText: {
-		textAlign: "center",
-		fontFamily: "Mulish_700Bold",
-		fontSize: 16,
-		color: colors.text,
 	},
 });
 

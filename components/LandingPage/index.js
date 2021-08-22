@@ -1,8 +1,9 @@
 import React from "react";
 import { StatusBar } from "expo-status-bar";
-import { Text, Image, SafeAreaView, TouchableOpacity, View } from "react-native";
+import { Text, Image, SafeAreaView, View } from "react-native";
 
 import styles from "./styles";
+import Button from "../Button";
 
 const LandingPage = () => {
 	return (
@@ -18,12 +19,8 @@ const LandingPage = () => {
 				/>
 				<Text style={styles.description}>Let’s begin your barter journey!</Text>
 			</View>
-			<TouchableOpacity style={styles.primaryButton}>
-				<Text style={styles.buttonText}>Register</Text>
-			</TouchableOpacity>
-			<TouchableOpacity style={styles.secondaryButton}>
-				<Text style={styles.buttonText}>Login</Text>
-			</TouchableOpacity>
+			<Button text="Register" onPress={() => alert("HI")} />
+			<Button text="Login" type="secondary" onPress={() => alert("HI")} />
 		</SafeAreaView>
 	);
 };
