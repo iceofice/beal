@@ -38,6 +38,7 @@ const styles = StyleSheet.create({
 		aspectRatio: 4 / 1,
 		justifyContent: "center",
 		marginBottom: 15,
+		alignItems: "center",
 	},
 	secondaryButton: {
 		borderRadius: 31.5,
@@ -46,6 +47,7 @@ const styles = StyleSheet.create({
 		width: windowWidth / 2.5,
 		aspectRatio: 4 / 1,
 		justifyContent: "center",
+		alignItems: "center",
 	},
 	// buttonText: {
 	// 	textAlign: "center",

@@ -4,7 +4,7 @@ import { Image, SafeAreaView, TouchableOpacity, View } from "react-native";
 
 import styles from "./styles";
 import colors from "../../assets/colors/colors";
-import { BText } from "../../components";
+import { Text } from "../../components";
 
 const LandingPage = () => {
 	return (
@@ -13,23 +13,27 @@ const LandingPage = () => {
 
 			<Image source={require("../../assets/images/icon-with-text.png")} style={styles.icon} />
 			<View style={styles.imageWrapper}>
-				<BText value="Home For Barterers" type="light" size={24} color={colors.textLight} />
+				<Text size={24} weight="light" color={colors.textLight}>
+					Home For Barterers
+				</Text>
 				<Image
 					source={require("../../assets/images/landing-page.png")}
 					style={styles.landingPageImage}
 				/>
-				<BText
-					value="Let’s begin your barter journey!"
-					type="light"
-					size={18}
-					color={colors.textLight}
-				/>
+				<Text size={18} weight="light" color={colors.textLight}>
+					Let’s begin your barter journey!
+				</Text>
 			</View>
+
 			<TouchableOpacity style={styles.primaryButton}>
-				<BText value="Register" type="button" />
+				<Text size={16} weight="bold">
+					Register
+				</Text>
 			</TouchableOpacity>
 			<TouchableOpacity style={styles.secondaryButton}>
-				<BText value="Login" type="button" />
+				<Text size={16} weight="bold">
+					Login
+				</Text>
 			</TouchableOpacity>
 		</SafeAreaView>
 	);
