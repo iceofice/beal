@@ -4,8 +4,8 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import {
 	useFonts,
-	Mulish_400Regular,
 	Mulish_300Light,
+	Mulish_400Regular,
 	Mulish_700Bold,
 } from "@expo-google-fonts/mulish";
 
@@ -15,8 +15,8 @@ const Stack = createNativeStackNavigator();
 
 export default function App() {
 	let [fontsLoaded] = useFonts({
-		Mulish_400Regular,
 		Mulish_300Light,
+		Mulish_400Regular,
 		Mulish_700Bold,
 	});
 	if (!fontsLoaded) {

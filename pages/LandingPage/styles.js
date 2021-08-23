@@ -1,8 +1,6 @@
-import { StyleSheet, Dimensions } from "react-native";
+import { StyleSheet } from "react-native";
 
 import colors from "../../assets/colors/colors";
-
-const windowWidth = Dimensions.get("window").width;
 
 const styles = StyleSheet.create({
 	container: {
@@ -31,30 +29,6 @@ const styles = StyleSheet.create({
 		marginVertical: 15,
 		marginHorizontal: 15,
 	},
-	primaryButton: {
-		borderRadius: 31.5,
-		backgroundColor: colors.primary,
-		width: windowWidth / 2.5,
-		aspectRatio: 4 / 1,
-		justifyContent: "center",
-		marginBottom: 15,
-		alignItems: "center",
-	},
-	secondaryButton: {
-		borderRadius: 31.5,
-		borderWidth: 2,
-		borderColor: colors.primary,
-		width: windowWidth / 2.5,
-		aspectRatio: 4 / 1,
-		justifyContent: "center",
-		alignItems: "center",
-	},
-	// buttonText: {
-	// 	textAlign: "center",
-	// 	fontFamily: "Mulish_700Bold",
-	// 	fontSize: 16,
-	// 	color: colors.text,
-	// },
 });
 
 export default styles;
