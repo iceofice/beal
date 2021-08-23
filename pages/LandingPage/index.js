@@ -1,8 +1,10 @@
 import React from "react";
 import { StatusBar } from "expo-status-bar";
-import { Text, Image, SafeAreaView, TouchableOpacity, View } from "react-native";
+import { Image, SafeAreaView, TouchableOpacity, View } from "react-native";
 
 import styles from "./styles";
+import colors from "../../assets/colors/colors";
+import { BText } from "../../components";
 
 const LandingPage = () => {
 	return (
@@ -11,18 +13,23 @@ const LandingPage = () => {
 
 			<Image source={require("../../assets/images/icon-with-text.png")} style={styles.icon} />
 			<View style={styles.imageWrapper}>
-				<Text style={styles.slogan}>Home For Barterers</Text>
+				<BText value="Home For Barterers" type="light" size={24} color={colors.textLight} />
 				<Image
 					source={require("../../assets/images/landing-page.png")}
 					style={styles.landingPageImage}
 				/>
-				<Text style={styles.description}>Let’s begin your barter journey!</Text>
+				<BText
+					value="Let’s begin your barter journey!"
+					type="light"
+					size={18}
+					color={colors.textLight}
+				/>
 			</View>
 			<TouchableOpacity style={styles.primaryButton}>
-				<Text style={styles.buttonText}>Register</Text>
+				<BText value="Register" type="button" />
 			</TouchableOpacity>
 			<TouchableOpacity style={styles.secondaryButton}>
-				<Text style={styles.buttonText}>Login</Text>
+				<BText value="Login" type="button" />
 			</TouchableOpacity>
 		</SafeAreaView>
 	);
