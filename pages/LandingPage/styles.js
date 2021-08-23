@@ -25,22 +25,11 @@ const styles = StyleSheet.create({
 		justifyContent: "center",
 		marginBottom: 30,
 	},
-
-	slogan: {
-		color: colors.textLight,
-		fontFamily: "Mulish_Light",
-		fontSize: 24,
-	},
 	landingPageImage: {
 		height: "60%",
 		resizeMode: "contain",
 		marginVertical: 15,
 		marginHorizontal: 15,
-	},
-	description: {
-		color: colors.textLight,
-		fontFamily: "Mulish_300Light",
-		fontSize: 18,
 	},
 	primaryButton: {
 		borderRadius: 31.5,
@@ -49,6 +38,7 @@ const styles = StyleSheet.create({
 		aspectRatio: 4 / 1,
 		justifyContent: "center",
 		marginBottom: 15,
+		alignItems: "center",
 	},
 	secondaryButton: {
 		borderRadius: 31.5,
@@ -57,13 +47,14 @@ const styles = StyleSheet.create({
 		width: windowWidth / 2.5,
 		aspectRatio: 4 / 1,
 		justifyContent: "center",
+		alignItems: "center",
 	},
-	buttonText: {
-		textAlign: "center",
-		fontFamily: "Mulish_700Bold",
-		fontSize: 16,
-		color: colors.text,
-	},
+	// buttonText: {
+	// 	textAlign: "center",
+	// 	fontFamily: "Mulish_700Bold",
+	// 	fontSize: 16,
+	// 	color: colors.text,
+	// },
 });
 
 export default styles;
