@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { Dimensions, TouchableOpacity, StyleSheet } from "react-native";
 
 import colors from "../assets/colors/colors";
-import { Text } from ".";
+import { Text } from "./Text";
 
 export const Button = (props) => (
 	<TouchableOpacity onPress={props.onPress} style={[styles.button, buttonStyle(props.type)]}>
