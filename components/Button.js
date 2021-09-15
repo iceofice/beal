@@ -6,7 +6,10 @@ import colors from "../assets/colors/colors";
 import { Text } from "./Text";
 
 export const Button = (props) => (
-	<TouchableOpacity onPress={props.onPress} style={[styles.button, buttonStyle(props.type)]}>
+	<TouchableOpacity
+		onPress={props.onPress}
+		style={[styles.button, buttonStyle(props.type), props.style]}
+	>
 		<Text size={16} weight="bold">
 			{props.title}
 		</Text>
@@ -17,6 +20,7 @@ Button.propTypes = {
 	title: PropTypes.string.isRequired,
 	type: PropTypes.oneOf(["primary", "secondary"]),
 	onPress: PropTypes.func,
+	style: PropTypes.object,
 };
 
 Button.defaultProps = {

@@ -3,6 +3,7 @@ const colors = {
 	text: "#FFFFFF",
 	textLight: "#BBC2D8",
 	primary: "#BA35D6",
+	secondary: "#2C7CEF",
 };
 
 export default colors;

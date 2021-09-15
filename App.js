@@ -10,6 +10,8 @@ import {
 } from "@expo-google-fonts/mulish";
 
 import LandingPage from "./pages/LandingPage";
+import RegisterPage from "./pages/RegisterPage";
+import colors from "./assets/colors/colors";
 
 const Stack = createNativeStackNavigator();
 
@@ -26,6 +28,17 @@ export default function App() {
 			<NavigationContainer>
 				<Stack.Navigator>
 					<Stack.Screen name="Home" component={LandingPage} options={{ headerShown: false }} />
+					<Stack.Screen
+						name="Register"
+						component={RegisterPage}
+						options={{
+							title: "",
+							headerStyle: {
+								backgroundColor: colors.background,
+							},
+							headerTintColor: colors.secondary,
+						}}
+					/>
 				</Stack.Navigator>
 			</NavigationContainer>
 		);

@@ -5,7 +5,9 @@ import { Text as BText, StyleSheet } from "react-native";
 import colors from "../assets/colors/colors";
 
 export const Text = (props) => (
-	<BText style={[stylePicker(props.weight), styles.textStyle(props)]}>{props.children}</BText>
+	<BText style={[stylePicker(props.weight), styles.textStyle(props), props.style]}>
+		{props.children}
+	</BText>
 );
 
 Text.propTypes = {
@@ -13,6 +15,7 @@ Text.propTypes = {
 	size: PropTypes.number,
 	children: PropTypes.string.isRequired,
 	color: PropTypes.string,
+	style: PropTypes.object,
 };
 
 Text.defaultProps = {
