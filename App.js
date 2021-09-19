@@ -11,6 +11,7 @@ import {
 
 import LandingPage from "./pages/LandingPage";
 import RegisterPage from "./pages/RegisterPage";
+import NewPasswordPage from "./pages/NewPasswordPage";
 import colors from "./assets/colors/colors";
 
 const Stack = createNativeStackNavigator();

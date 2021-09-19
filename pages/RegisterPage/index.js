@@ -1,132 +1,92 @@
 import React from "react";
 import {
-	Image,
 	View,
-	StyleSheet,
-	KeyboardAvoidingView,
+	Image,
+	Keyboard,
 	Platform,
 	SafeAreaView,
+	KeyboardAvoidingView,
 	TouchableWithoutFeedback,
-	Keyboard,
 } from "react-native";
+
+import styles from "./styles";
 import colors from "../../assets/colors/colors";
 import { Button, Text, InputText } from "../../components";
 
-const RegisterPage = () => {
-	return (
-		<KeyboardAvoidingView
-			style={{ flex: 1 }}
-			behavior={Platform.OS === "ios" ? "padding" : "height"}
-		>
-			<SafeAreaView style={{ flex: 1 }}>
-				<TouchableWithoutFeedback onPress={Keyboard.dismiss}>
-					<View style={styles.container}>
-						<View style={styles.iconWrapper}>
-							<Image source={require("../../assets/images/icon.png")} style={styles.icon} />
-						</View>
+const RegisterPage = () => (
+	<KeyboardAvoidingView
+		style={styles.flexOne}
+		behavior={Platform.OS === "ios" ? "padding" : "height"}
+	>
+		<TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
+			<SafeAreaView style={styles.container}>
+				<View style={styles.iconWrapper}>
+					<Image source={require("../../assets/images/icon.png")} style={styles.icon} />
+				</View>
 
-						<View style={styles.formWrapper}>
-							<Text weight="bold" size={36}>
-								Register
-							</Text>
-							<View style={{ flex: 1.5, justifyContent: "space-between", marginVertical: 40 }}>
-								<InputText />
-								<InputText />
-								<InputText />
-							</View>
-							<View style={{ flex: 2, alignItems: "center" }}>
-								<Button style={{ marginVertical: 12 }} title="Register" />
-								<View style={{ flexDirection: "row" }}>
-									<Text weight="light" size={14} color={colors.textLight}>
-										Already have an account?
-									</Text>
-									<Text
-										weight="bold"
-										size={14}
-										color={colors.text}
-										style={{
-											marginHorizontal: 4,
-											borderBottomColor: colors.text,
-											borderBottomWidth: 1,
-										}}
-									>
-										Login
-									</Text>
-									<Text weight="light" size={14} color={colors.textLight}>
-										here!
-									</Text>
-								</View>
-							</View>
+				<View style={styles.title}>
+					<Text weight="bold" size={36}>
+						Register
+					</Text>
+				</View>
+
+				<View style={styles.formWrapper}>
+					<View style={styles.inputFormWrapper}>
+						<View style={styles.inputText}>
+							<InputText />
 						</View>
-						<View style={styles.separator}>
-							<View style={styles.line} />
-							<View>
-								<Text size={14} color={colors.textLight} style={{ paddingHorizontal: 8 }}>
-									Register With
-								</Text>
-							</View>
-							<View style={styles.line} />
+						<View style={styles.inputText}>
+							<InputText />
 						</View>
-						<View style={styles.authWrapper}>
-							<Image
-								source={require("../../assets/images/google-circle.png")}
-								style={styles.socialMedia}
-							/>
-							<Image
-								source={require("../../assets/images/google-circle.png")}
-								style={styles.socialMedia}
-							/>
+						<View style={styles.inputText}>
+							<InputText />
 						</View>
 					</View>
-				</TouchableWithoutFeedback>
-			</SafeAreaView>
-		</KeyboardAvoidingView>
-	);
-};
 
-const styles = StyleSheet.create({
-	container: {
-		flex: 1,
-		flexDirection: "column",
-		justifyContent: "flex-end",
-		alignItems: "center",
-		backgroundColor: colors.background,
-	},
-	iconWrapper: {
-		flex: 1,
-		marginBottom: 54,
-	},
-	icon: {
-		flex: 1,
-		width: 100,
-		resizeMode: "contain",
-	},
-	formWrapper: {
-		flex: 4,
-		alignItems: "center",
-	},
-	separator: {
-		marginHorizontal: 100,
-		flexDirection: "row",
-		alignItems: "center",
-	},
-	line: {
-		flex: 1,
-		height: 1,
-		backgroundColor: colors.textLight,
-	},
-	authWrapper: {
-		flex: 1,
-		flexDirection: "row",
-		paddingBottom: "10%",
-	},
-	socialMedia: {
-		width: 42,
-		aspectRatio: 1,
-		resizeMode: "contain",
-		marginHorizontal: 4,
-		marginTop: 12,
-	},
-});
+					<View style={styles.buttonWrapper}>
+						<Button title="Register" style={styles.button} onPress={() => alert("Login")} />
+
+						<TouchableWithoutFeedback onPress={() => alert("Login")}>
+							<View style={styles.loginTextWrapper}>
+								<Text weight="light" size={14} color={colors.textLight}>
+									Already have an account?
+								</Text>
+								<Text weight="bold" size={14} color={colors.text} style={styles.loginText}>
+									Login
+								</Text>
+								<Text weight="light" size={14} color={colors.textLight}>
+									here!
+								</Text>
+							</View>
+						</TouchableWithoutFeedback>
+					</View>
+				</View>
+
+				<View style={styles.bottomWrapper}>
+					<View style={styles.separator}>
+						<View style={styles.separatorLine} />
+						<View>
+							<Text size={14} color={colors.textLight} style={styles.separatorText}>
+								Register With
+							</Text>
+						</View>
+						<View style={styles.separatorLine} />
+					</View>
+
+					<View style={styles.authWrapper}>
+						<Image
+							source={require("../../assets/images/google-circle.png")}
+							style={styles.socialMedia}
+						/>
+						<Image
+							source={require("../../assets/images/google-circle.png")}
+							style={styles.socialMedia}
+						/>
+					</View>
+				</View>
+			</SafeAreaView>
+		</TouchableWithoutFeedback>
+	</KeyboardAvoidingView>
+);
 
 export default RegisterPage;

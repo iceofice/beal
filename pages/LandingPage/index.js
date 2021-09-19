@@ -29,7 +29,7 @@ const LandingPage = () => {
 			</View>
 			<View style={{ alignItems: "center" }}>
 				<Button title="Register" onPress={() => nav.navigate("Register")} />
-				<Button title="Login" type="secondary" />
+				<Button title="Login" type="secondary" onPress={() => alert("Login")} />
 			</View>
 		</SafeAreaView>
 	);
