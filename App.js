@@ -11,8 +11,9 @@ import {
 
 import LandingPage from "./pages/LandingPage";
 import RegisterPage from "./pages/RegisterPage";
-import NewPasswordPage from "./pages/NewPasswordPage";
+// import NewPasswordPage from "./pages/NewPasswordPage";
 import colors from "./assets/colors/colors";
+import LoginPage from "./pages/NewLoginPage";
 
 const Stack = createNativeStackNavigator();
 
@@ -32,6 +33,17 @@ export default function App() {
 					<Stack.Screen
 						name="Register"
 						component={RegisterPage}
+						options={{
+							title: "",
+							headerStyle: {
+								backgroundColor: colors.background,
+							},
+							headerTintColor: colors.secondary,
+						}}
+					/>
+					<Stack.Screen
+						name="Login"
+						component={LoginPage}
 						options={{
 							title: "",
 							headerStyle: {
