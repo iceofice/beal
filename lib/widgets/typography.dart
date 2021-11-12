@@ -1,15 +1,23 @@
 import 'package:flutter/material.dart';
 import '../utils/colors.dart';
 
-// ignore: non_constant_identifier_names
-Text StyledTypography({
-  required String text,
-  String style = 'normal',
-}) {
-  return Text(
-    text,
-    style: _textStyle(style),
-  );
+class StyledTypography extends StatelessWidget {
+  final String text;
+  final String style;
+
+  const StyledTypography({
+    Key? key,
+    required this.text,
+    this.style = "normal",
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Text(
+      text,
+      style: _textStyle(style),
+    );
+  }
 }
 
 _textStyle(String style) {
@@ -17,16 +25,19 @@ _textStyle(String style) {
     case "h1":
       return const TextStyle(
         fontSize: 32,
+        fontWeight: FontWeight.bold,
         color: neutralColor,
       );
     case "h2":
       return const TextStyle(
         fontSize: 24,
+        fontWeight: FontWeight.bold,
         color: neutralColor,
       );
     case "h3":
       return const TextStyle(
         fontSize: 20,
+        fontWeight: FontWeight.bold,
         color: neutralColor,
       );
     case "h4":
