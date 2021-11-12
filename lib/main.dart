@@ -15,9 +15,11 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primaryColor: primaryColor,
         scaffoldBackgroundColor: backgroundColor,
+        focusColor: Colors.red,
+        colorScheme: ThemeData().colorScheme.copyWith(primary: secondaryColor),
         fontFamily: 'Mulish',
       ),
-      home: const LandingPage(),
+      home: LandingPage(),
     );
   }
 }

@@ -1,9 +1,10 @@
-import 'package:beal/widgets/button.dart';
+import 'package:beal/widgets/widgets.dart';
+import 'package:beal/utils/colors.dart';
 import 'package:flutter/material.dart';
-import '../utils/colors.dart';
 
 class LandingPage extends StatelessWidget {
-  const LandingPage({Key? key}) : super(key: key);
+  LandingPage({Key? key}) : super(key: key);
+  final TextEditingController _test = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -14,6 +15,31 @@ class LandingPage extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
+              TextFormField(
+                decoration: const InputDecoration(
+                  icon: Icon(
+                    Icons.person,
+                    // color: neutralColor,
+                  ),
+                  labelText: 'Username',
+                  labelStyle: TextStyle(color: neutralColor),
+                  enabledBorder: UnderlineInputBorder(
+                    borderSide: BorderSide(
+                      color: neutralColor,
+                    ),
+                  ),
+                  // focusedBorder: UnderlineInputBorder(
+                  //   borderSide: BorderSide(
+                  //     color: secondaryColor,
+                  //   ),
+                  // ),
+                ),
+                validator: (String? value) {
+                  return (value != null && value.contains('@'))
+                      ? 'Do not use the @ char.'
+                      : null;
+                },
+              ),
               Container(
                 alignment: Alignment.center,
                 child: Image.asset('assets/images/logo.png'),
