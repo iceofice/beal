@@ -3,8 +3,7 @@ import 'package:beal/utils/colors.dart';
 import 'package:flutter/material.dart';
 
 class LandingPage extends StatelessWidget {
-  LandingPage({Key? key}) : super(key: key);
-  final TextEditingController _test = TextEditingController();
+  const LandingPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -49,14 +48,9 @@ class LandingPage extends StatelessWidget {
                 child: Container(
                   alignment: Alignment.center,
                   padding: const EdgeInsets.all(16),
-                  child: const Text(
-                    'Home For Barterers',
-                    style: TextStyle(
-                      fontFamily: 'Mulish',
-                      fontWeight: FontWeight.w700,
-                      fontSize: 20,
-                      color: neutralColor,
-                    ),
+                  child: const StyledTypography(
+                    text: "Home For Barterers",
+                    style: "h3",
                   ),
                 ),
               ),
@@ -69,12 +63,9 @@ class LandingPage extends StatelessWidget {
                 child: Container(
                   alignment: Alignment.center,
                   padding: const EdgeInsets.all(16),
-                  child: const Text(
-                    "Let's begin your barter journey!",
-                    style: TextStyle(
-                      fontSize: 20,
-                      color: neutralColor,
-                    ),
+                  child: const StyledTypography(
+                    text: "Let's begin your barter journey!",
+                    style: "h4",
                   ),
                 ),
               ),
