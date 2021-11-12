@@ -1,3 +1,4 @@
+import 'package:beal/widgets/typography.dart';
 import 'package:flutter/material.dart';
 import '../utils/colors.dart';
 
@@ -6,9 +7,7 @@ ElevatedButton StyledButton({
   required VoidCallback onPressed,
   String buttonText = "button",
   Color buttonColor = primaryColor,
-  Color textColor = neutralColor,
   double elevation = 0.0,
-  double fontSize = 16,
   double height = 35,
   double width = 135,
   double margin = 0,
@@ -32,13 +31,9 @@ ElevatedButton StyledButton({
     ),
     child: Padding(
       padding: EdgeInsets.all(padding),
-      child: Text(
-        buttonText,
-        style: TextStyle(
-          fontSize: fontSize,
-          fontWeight: FontWeight.bold,
-          color: neutralColor,
-        ),
+      child: StyledTypography(
+        text: buttonText,
+        style: "button",
       ),
     ),
   );

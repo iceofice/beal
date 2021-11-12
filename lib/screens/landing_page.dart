@@ -1,4 +1,5 @@
 import 'package:beal/widgets/button.dart';
+import 'package:beal/widgets/typography.dart';
 import 'package:flutter/material.dart';
 import '../utils/colors.dart';
 
@@ -23,14 +24,9 @@ class LandingPage extends StatelessWidget {
                 child: Container(
                   alignment: Alignment.center,
                   padding: const EdgeInsets.all(16),
-                  child: const Text(
-                    'Home For Barterers',
-                    style: TextStyle(
-                      fontFamily: 'Mulish',
-                      fontWeight: FontWeight.w700,
-                      fontSize: 20,
-                      color: neutralColor,
-                    ),
+                  child: StyledTypography(
+                    text: "Home For Barterers",
+                    style: "h3",
                   ),
                 ),
               ),
@@ -43,12 +39,9 @@ class LandingPage extends StatelessWidget {
                 child: Container(
                   alignment: Alignment.center,
                   padding: const EdgeInsets.all(16),
-                  child: const Text(
-                    "Let's begin your barter journey!",
-                    style: TextStyle(
-                      fontSize: 20,
-                      color: neutralColor,
-                    ),
+                  child: StyledTypography(
+                    text: "Let's begin your barter journey!",
+                    style: "h3",
                   ),
                 ),
               ),
@@ -69,6 +62,7 @@ class LandingPage extends StatelessWidget {
                   ),
                 ],
               ),
+              StyledTypography(text: "Hello", style: "normal")
             ],
           ),
         ),
