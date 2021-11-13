@@ -1,13 +1,13 @@
-import 'package:beal/widgets/button.dart';
-import 'package:beal/widgets/typography.dart';
+import 'package:beal/widgets/widgets.dart';
+import 'package:beal/utils/colors.dart';
 import 'package:flutter/material.dart';
-import '../utils/colors.dart';
 
 class LandingPage extends StatelessWidget {
-  const LandingPage({Key? key}) : super(key: key);
+  LandingPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    final TextEditingController _username = TextEditingController();
     return Scaffold(
       body: Padding(
         padding: const EdgeInsets.all(15.0),
@@ -15,6 +15,11 @@ class LandingPage extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
+              InputText(
+                controller: _username,
+                labelText: 'Username',
+                icon: Icons.person,
+              ),
               Container(
                 alignment: Alignment.center,
                 child: Image.asset('assets/images/logo.png'),
@@ -49,7 +54,7 @@ class LandingPage extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   StyledButton(
-                    onPressed: () => {},
+                    onPressed: () => {print("a")},
                     buttonColor: primaryColor,
                     buttonText: "Register",
                     margin: 4,
