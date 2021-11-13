@@ -15,10 +15,12 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primaryColor: primaryColor,
         scaffoldBackgroundColor: backgroundColor,
-        focusColor: Colors.red,
-        colorScheme: ThemeData().colorScheme.copyWith(primary: secondaryColor),
+        colorScheme: ThemeData().colorScheme.copyWith(
+              primary: secondaryColor,
+            ),
         fontFamily: 'Mulish',
       ),
+      debugShowCheckedModeBanner: false,
       home: LandingPage(),
     );
   }

@@ -3,10 +3,11 @@ import 'package:beal/utils/colors.dart';
 import 'package:flutter/material.dart';
 
 class LandingPage extends StatelessWidget {
-  const LandingPage({Key? key}) : super(key: key);
+  LandingPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    final TextEditingController _username = TextEditingController();
     return Scaffold(
       body: Padding(
         padding: const EdgeInsets.all(15.0),
@@ -14,30 +15,10 @@ class LandingPage extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              TextFormField(
-                decoration: const InputDecoration(
-                  icon: Icon(
-                    Icons.person,
-                    // color: neutralColor,
-                  ),
-                  labelText: 'Username',
-                  labelStyle: TextStyle(color: neutralColor),
-                  enabledBorder: UnderlineInputBorder(
-                    borderSide: BorderSide(
-                      color: neutralColor,
-                    ),
-                  ),
-                  // focusedBorder: UnderlineInputBorder(
-                  //   borderSide: BorderSide(
-                  //     color: secondaryColor,
-                  //   ),
-                  // ),
-                ),
-                validator: (String? value) {
-                  return (value != null && value.contains('@'))
-                      ? 'Do not use the @ char.'
-                      : null;
-                },
+              InputText(
+                controller: _username,
+                labelText: 'Username',
+                icon: Icons.person,
               ),
               Container(
                 alignment: Alignment.center,
@@ -73,7 +54,7 @@ class LandingPage extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   StyledButton(
-                    onPressed: () => {},
+                    onPressed: () => {print("a")},
                     buttonColor: primaryColor,
                     buttonText: "Register",
                   ),
