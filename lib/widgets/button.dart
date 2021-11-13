@@ -32,26 +32,29 @@ class StyledButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ElevatedButton(
-      onPressed: () => {},
-      style: ElevatedButton.styleFrom(
-        primary: buttonColor,
-        fixedSize: Size(width, height),
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(borderRadius),
-          side: BorderSide(
-            color: borderColor,
-            width: borderWidth,
+    return Container(
+        margin: EdgeInsets.all(margin),
+        child: ElevatedButton(
+          onPressed: () => {},
+          style: ElevatedButton.styleFrom(
+            primary: buttonColor,
+            elevation: elevation,
+            fixedSize: Size(width, height),
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(borderRadius),
+              side: BorderSide(
+                color: borderColor,
+                width: borderWidth,
+              ),
+            ),
           ),
-        ),
-      ),
-      child: Padding(
-        padding: EdgeInsets.all(padding),
-        child: StyledTypography(
-          text: buttonText,
-          style: "button",
-        ),
-      ),
-    );
+          child: Padding(
+            padding: EdgeInsets.all(padding),
+            child: StyledTypography(
+              text: buttonText,
+              style: "button",
+            ),
+          ),
+        ));
   }
 }
