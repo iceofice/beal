@@ -7,7 +7,6 @@ class LandingPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final TextEditingController _username = TextEditingController();
     return Scaffold(
       body: Padding(
         padding: const EdgeInsets.all(15.0),
@@ -15,11 +14,6 @@ class LandingPage extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              InputText(
-                controller: _username,
-                labelText: 'Username',
-                icon: Icons.person,
-              ),
               Container(
                 alignment: Alignment.center,
                 child: Image.asset('assets/images/logo.png'),
