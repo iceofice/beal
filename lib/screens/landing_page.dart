@@ -52,6 +52,7 @@ class LandingPage extends StatelessWidget {
                     onPressed: () => {},
                     buttonColor: primaryColor,
                     buttonText: "Register",
+                    margin: 4,
                   ),
                   StyledButton(
                     onPressed: () => {},
@@ -59,6 +60,7 @@ class LandingPage extends StatelessWidget {
                     buttonText: "Login",
                     borderWidth: 2,
                     borderColor: primaryColor,
+                    margin: 4,
                   ),
                 ],
               ),
