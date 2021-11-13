@@ -2,6 +2,7 @@ import 'package:beal/widgets/button.dart';
 import 'package:beal/widgets/typography.dart';
 import 'package:flutter/material.dart';
 import '../utils/colors.dart';
+import 'login_page.dart';
 
 class LandingPage extends StatelessWidget {
   const LandingPage({Key? key}) : super(key: key);
@@ -55,7 +56,14 @@ class LandingPage extends StatelessWidget {
                     margin: 4,
                   ),
                   StyledButton(
-                    onPressed: () => {},
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const LoginPage(),
+                        ),
+                      );
+                    },
                     buttonColor: backgroundColor,
                     buttonText: "Login",
                     borderWidth: 2,

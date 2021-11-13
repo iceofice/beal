@@ -35,7 +35,7 @@ class StyledButton extends StatelessWidget {
     return Container(
         margin: EdgeInsets.all(margin),
         child: ElevatedButton(
-          onPressed: () => {},
+          onPressed: () => onPressed(),
           style: ElevatedButton.styleFrom(
             primary: buttonColor,
             elevation: elevation,

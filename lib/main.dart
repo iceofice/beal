@@ -14,6 +14,10 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       theme: ThemeData(
         primaryColor: primaryColor,
+        appBarTheme: const AppBarTheme(
+          color: backgroundColor,
+          elevation: 8,
+        ),
         scaffoldBackgroundColor: backgroundColor,
         fontFamily: 'Mulish',
       ),
