@@ -1,5 +1,5 @@
-import 'package:beal/widgets/button.dart';
-import 'package:beal/widgets/typography.dart';
+import 'package:beal/widgets/widgets.dart';
+import 'package:beal/utils/colors.dart';
 import 'package:flutter/material.dart';
 import '../utils/colors.dart';
 import 'login_page.dart';
@@ -50,7 +50,7 @@ class LandingPage extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   StyledButton(
-                    onPressed: () => {},
+                    onPressed: () => {print("a")},
                     buttonColor: primaryColor,
                     buttonText: "Register",
                     margin: 4,

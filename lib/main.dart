@@ -19,9 +19,13 @@ class MyApp extends StatelessWidget {
           elevation: 8,
         ),
         scaffoldBackgroundColor: backgroundColor,
+        colorScheme: ThemeData().colorScheme.copyWith(
+              primary: secondaryColor,
+            ),
         fontFamily: 'Mulish',
       ),
-      home: const LandingPage(),
+      debugShowCheckedModeBanner: false,
+      home: LandingPage(),
     );
   }
 }
