@@ -31,6 +31,7 @@ class _InputTextState extends State<InputText> {
         decoration: InputDecoration(
           icon: Icon(
             widget.icon,
+            size: 24,
             color: _focus ? secondaryColor : neutralColor,
           ),
           labelText: widget.labelText,
