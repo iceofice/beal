@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
         primaryColor: primaryColor,
         appBarTheme: const AppBarTheme(
           color: backgroundColor,
-          elevation: 8,
+          elevation: 4,
         ),
         scaffoldBackgroundColor: backgroundColor,
         colorScheme: ThemeData().colorScheme.copyWith(

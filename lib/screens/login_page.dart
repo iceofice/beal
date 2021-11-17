@@ -40,8 +40,8 @@ class _LoginPageState extends State<LoginPage> {
                   style: "h1",
                 ),
               ),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 32.0),
+              SizedBox(
+                width: MediaQuery.of(context).size.width * 0.8,
                 child: Column(
                   children: [
                     Padding(
@@ -61,13 +61,12 @@ class _LoginPageState extends State<LoginPage> {
                   ],
                 ),
               ),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 35.0),
+              SizedBox(
+                width: MediaQuery.of(context).size.width * 0.8,
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Checkbox(
                           value: _rememberMe,
@@ -92,7 +91,7 @@ class _LoginPageState extends State<LoginPage> {
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.only(top: 30.0, bottom: 8.0),
+                padding: const EdgeInsets.only(top: 24.0, bottom: 8.0),
                 child: StyledButton(
                   onPressed: () => {},
                   buttonText: "Login",
