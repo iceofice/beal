@@ -45,14 +45,16 @@ class _LoginPageState extends State<LoginPage> {
                 child: Column(
                   children: [
                     Padding(
-                      padding: const EdgeInsets.all(8.0),
+                      padding: const EdgeInsets.all(0),
                       child: InputText(
+                        labelText: "Username",
                         controller: _emailController,
                       ),
                     ),
                     Padding(
-                      padding: const EdgeInsets.all(8.0),
+                      padding: const EdgeInsets.all(0),
                       child: InputText(
+                        labelText: "Password",
                         controller: _passwordController,
                         isPassword: true,
                         icon: Icons.lock,
@@ -72,7 +74,7 @@ class _LoginPageState extends State<LoginPage> {
                           alignment: Alignment.center,
                           width: 14,
                           height: 14,
-                          margin: EdgeInsets.only(right: 10),
+                          margin: const EdgeInsets.only(right: 10),
                           decoration: BoxDecoration(
                             color: neutralColor[900],
                             borderRadius: BorderRadius.circular(3),
@@ -122,9 +124,32 @@ class _LoginPageState extends State<LoginPage> {
                 margin: const EdgeInsets.only(top: 32.0),
                 child: Column(
                   children: [
-                    const StyledTypography(
-                      text: "---Login With---",
-                      style: "small",
+                    SizedBox(
+                      width: 150,
+                      child: Row(
+                        children: const [
+                          Expanded(
+                            child: Divider(
+                              color: neutralColor,
+                              thickness: 2,
+                            ),
+                          ),
+                          Padding(
+                            padding: EdgeInsets.symmetric(
+                              horizontal: 7,
+                              vertical: 0,
+                            ),
+                            child: StyledTypography(
+                                text: "Login With", style: "small"),
+                          ),
+                          Expanded(
+                            child: Divider(
+                              color: neutralColor,
+                              thickness: 2,
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
                     Padding(
                       padding: const EdgeInsets.all(8.0),
