@@ -29,8 +29,8 @@ class _LoginPageState extends State<LoginPage> {
               Container(
                 alignment: Alignment.center,
                 child: Image.asset(
-                  'assets/images/logo.png',
-                  width: 150,
+                  'assets/images/logo_no-text.png',
+                  width: 110,
                 ),
               ),
               const Padding(
