@@ -68,7 +68,7 @@ _textStyle(String style) {
       );
     case "small":
       return const TextStyle(
-        fontSize: 12,
+        fontSize: 14,
         color: neutralColor,
       );
     case "bold":

@@ -50,7 +50,7 @@ class LandingPage extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   StyledButton(
-                    onPressed: () => {print("a")},
+                    onPressed: () => {},
                     buttonColor: primaryColor,
                     buttonText: "Register",
                     margin: 4,

@@ -17,15 +17,17 @@ class MyApp extends StatelessWidget {
         appBarTheme: const AppBarTheme(
           color: backgroundColor,
           elevation: 4,
+          iconTheme: IconThemeData(color: secondaryColor),
         ),
         scaffoldBackgroundColor: backgroundColor,
         colorScheme: ThemeData().colorScheme.copyWith(
               primary: secondaryColor,
             ),
         fontFamily: 'Mulish',
+        unselectedWidgetColor: Colors.transparent,
       ),
       debugShowCheckedModeBanner: false,
-      home: LandingPage(),
+      home: const LandingPage(),
     );
   }
 }
