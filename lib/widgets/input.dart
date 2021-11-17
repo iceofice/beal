@@ -35,14 +35,17 @@ class _InputTextState extends State<InputText> {
             color: _focus ? secondaryColor : neutralColor,
           ),
           labelText: widget.labelText,
-          labelStyle: const TextStyle(color: neutralColor),
+          labelStyle: const TextStyle(
+            color: neutralColor,
+            fontSize: 14,
+          ),
           enabledBorder: const UnderlineInputBorder(
             borderSide: BorderSide(
               color: neutralColor,
             ),
           ),
         ),
-        style: const TextStyle(color: Colors.white),
+        style: TextStyle(color: neutralColor[900]),
         controller: widget.controller,
         obscureText: widget.isPassword,
         keyboardType: widget.keyboardType,

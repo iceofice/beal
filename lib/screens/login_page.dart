@@ -68,10 +68,24 @@ class _LoginPageState extends State<LoginPage> {
                   children: [
                     Row(
                       children: [
-                        Checkbox(
-                          value: _rememberMe,
-                          onChanged: (bool? value) => setState(
-                            () => _rememberMe = value!,
+                        Container(
+                          alignment: Alignment.center,
+                          width: 14,
+                          height: 14,
+                          margin: EdgeInsets.only(right: 10),
+                          decoration: BoxDecoration(
+                            color: neutralColor[900],
+                            borderRadius: BorderRadius.circular(3),
+                          ),
+                          child: Checkbox(
+                            value: _rememberMe,
+                            onChanged: (bool? value) => setState(
+                              () => _rememberMe = value!,
+                            ),
+                            checkColor: backgroundColor,
+                            activeColor: secondaryColor,
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(3)),
                           ),
                         ),
                         const StyledTypography(
