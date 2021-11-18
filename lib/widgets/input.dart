@@ -9,11 +9,11 @@ class InputText extends StatefulWidget {
   final bool isPassword;
   final TextInputType keyboardType;
   final String? Function(String?)? validator;
-  const InputText({
+  const InputText(
+    this.labelText, {
     Key? key,
     required this.controller,
     this.icon = Icons.person,
-    this.labelText = '',
     this.isPassword = false,
     this.keyboardType = TextInputType.text,
     this.validator,
@@ -32,10 +32,14 @@ class _InputTextState extends State<InputText> {
         decoration: InputDecoration(
           icon: Icon(
             widget.icon,
+            size: 20,
             color: _focus ? secondaryColor : neutralColor,
           ),
           labelText: widget.labelText,
-          labelStyle: const TextStyle(color: neutralColor),
+          labelStyle: const TextStyle(
+            color: neutralColor,
+            fontSize: 14,
+          ),
           enabledBorder: const UnderlineInputBorder(
             borderSide: BorderSide(
               color: neutralColor,

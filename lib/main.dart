@@ -14,11 +14,17 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       theme: ThemeData(
         primaryColor: primaryColor,
+        appBarTheme: const AppBarTheme(
+          color: backgroundColor,
+          elevation: 0,
+          iconTheme: IconThemeData(color: secondaryColor),
+        ),
         scaffoldBackgroundColor: backgroundColor,
         colorScheme: ThemeData().colorScheme.copyWith(
               primary: secondaryColor,
             ),
         fontFamily: 'Mulish',
+        unselectedWidgetColor: Colors.transparent,
       ),
       debugShowCheckedModeBanner: false,
       home: const SafeArea(
