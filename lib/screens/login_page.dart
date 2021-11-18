@@ -33,75 +33,74 @@ class _LoginPageState extends State<LoginPage> {
                   width: 110,
                 ),
               ),
-              const Padding(
-                padding: EdgeInsets.only(top: 12.0),
+              Padding(
+                padding: const EdgeInsets.only(top: 12.0),
                 child: StyledTypography(
                   "Login",
                   style: "h1",
+                  color: neutralColor[0],
                 ),
               ),
               SizedBox(
                 width: MediaQuery.of(context).size.width * 0.8,
                 child: Column(
                   children: [
-                    Padding(
-                      padding: const EdgeInsets.all(0),
-                      child: InputText(
-                        labelText: "Username",
-                        controller: _emailController,
-                      ),
+                    InputText(
+                      "Username",
+                      controller: _emailController,
                     ),
-                    Padding(
-                      padding: const EdgeInsets.all(0),
-                      child: InputText(
-                        labelText: "Password",
-                        controller: _passwordController,
-                        isPassword: true,
-                        icon: Icons.lock,
-                      ),
+                    InputText(
+                      "Password",
+                      controller: _passwordController,
+                      isPassword: true,
+                      icon: Icons.lock,
                     ),
-                  ],
-                ),
-              ),
-              SizedBox(
-                width: MediaQuery.of(context).size.width * 0.8,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
                     Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Container(
-                          alignment: Alignment.center,
-                          width: 14,
-                          height: 14,
-                          margin: const EdgeInsets.only(right: 10),
-                          decoration: BoxDecoration(
-                            color: neutralColor[900],
-                            borderRadius: BorderRadius.circular(3),
-                          ),
-                          child: Checkbox(
-                            value: _rememberMe,
-                            onChanged: (bool? value) => setState(
-                              () => _rememberMe = value!,
+                        Row(
+                          children: [
+                            Container(
+                              alignment: Alignment.center,
+                              width: 14,
+                              height: 14,
+                              margin: const EdgeInsets.only(right: 10),
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(3),
+                                color: neutralColor[0],
+                              ),
+                              child: Checkbox(
+                                value: _rememberMe,
+                                onChanged: (bool? value) => setState(
+                                  () => _rememberMe = value!,
+                                ),
+                                checkColor: backgroundColor,
+                                activeColor: secondaryColor,
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(3),
+                                ),
+                              ),
                             ),
-                            checkColor: backgroundColor,
-                            activeColor: secondaryColor,
-                            shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(3)),
-                          ),
+                            StyledTypography(
+                              "Remember me",
+                              style: "small",
+                              color: neutralColor[0],
+                            ),
+                          ],
                         ),
-                        const StyledTypography(
-                          "Remember me",
-                          style: "small",
+                        TextButton(
+                          onPressed: () {},
+                          child: StyledTypography(
+                            "Forgot Password?",
+                            style: "small",
+                            weight: "bold",
+                            color: neutralColor[0],
+                          ),
+                          style: TextButton.styleFrom(
+                            padding: EdgeInsets.zero,
+                          ),
                         ),
                       ],
-                    ),
-                    TextButton(
-                      onPressed: () {},
-                      child: const StyledTypography(
-                        "Forgot Password?",
-                        style: "small",
-                      ),
                     ),
                   ],
                 ),

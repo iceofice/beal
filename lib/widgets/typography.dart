@@ -5,7 +5,7 @@ class StyledTypography extends StatelessWidget {
   final String text;
   final String style;
   final String? weight;
-  final Color color;
+  final Color? color;
 
   const StyledTypography(
     this.text, {
@@ -19,7 +19,7 @@ class StyledTypography extends StatelessWidget {
   Widget build(BuildContext context) {
     return Text(
       text,
-      style: textStyle(style, weight!, color),
+      style: textStyle(style, weight, color),
     );
   }
 }
@@ -41,7 +41,7 @@ _fontWeight(String weight) {
   }
 }
 
-textStyle(String style, String? weight, Color color) {
+textStyle(String style, String? weight, Color? color) {
   switch (style) {
     case "h1":
       return TextStyle(
