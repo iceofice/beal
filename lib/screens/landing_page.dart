@@ -3,7 +3,7 @@ import 'package:beal/utils/colors.dart';
 import 'package:flutter/material.dart';
 
 class LandingPage extends StatelessWidget {
-  LandingPage({Key? key}) : super(key: key);
+  const LandingPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +25,8 @@ class LandingPage extends StatelessWidget {
                   padding: const EdgeInsets.all(16),
                   child: const StyledTypography(
                     "Home For Barterers",
-                    style: "h3",
+                    style: "h2",
+                    weight: "light",
                   ),
                 ),
               ),
@@ -41,6 +42,7 @@ class LandingPage extends StatelessWidget {
                   child: const StyledTypography(
                     "Let's begin your barter journey!",
                     style: "h4",
+                    weight: "light",
                   ),
                 ),
               ),
@@ -48,7 +50,7 @@ class LandingPage extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   StyledButton(
-                    onPressed: () => {print("a")},
+                    onPressed: () => {},
                     buttonColor: primaryColor,
                     buttonText: "Register",
                     margin: 4,
