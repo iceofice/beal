@@ -36,7 +36,7 @@ class _LoginPageState extends State<LoginPage> {
               const Padding(
                 padding: EdgeInsets.only(top: 12.0),
                 child: StyledTypography(
-                  text: "Login",
+                  "Login",
                   style: "h1",
                 ),
               ),
@@ -91,7 +91,7 @@ class _LoginPageState extends State<LoginPage> {
                           ),
                         ),
                         const StyledTypography(
-                          text: "Remember me",
+                          "Remember me",
                           style: "small",
                         ),
                       ],
@@ -99,7 +99,7 @@ class _LoginPageState extends State<LoginPage> {
                     TextButton(
                       onPressed: () {},
                       child: const StyledTypography(
-                        text: "Forgot Password?",
+                        "Forgot Password?",
                         style: "small",
                       ),
                     ),
@@ -116,7 +116,7 @@ class _LoginPageState extends State<LoginPage> {
               TextButton(
                 onPressed: () {},
                 child: const StyledTypography(
-                  text: "You’re new here? Register now!",
+                  "You’re new here? Register now!",
                   style: "small",
                 ),
               ),
@@ -140,7 +140,9 @@ class _LoginPageState extends State<LoginPage> {
                               vertical: 0,
                             ),
                             child: StyledTypography(
-                                text: "Login With", style: "small"),
+                              "Login With",
+                              style: "small",
+                            ),
                           ),
                           Expanded(
                             child: Divider(

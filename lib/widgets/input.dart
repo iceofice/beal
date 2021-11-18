@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:beal/utils/colors.dart';
+import './typography.dart';
 
 class InputText extends StatefulWidget {
   final TextEditingController controller;
@@ -45,7 +46,7 @@ class _InputTextState extends State<InputText> {
             ),
           ),
         ),
-        style: TextStyle(color: neutralColor[900]),
+        style: textStyle("normal", "regular", neutralColor),
         controller: widget.controller,
         obscureText: widget.isPassword,
         keyboardType: widget.keyboardType,

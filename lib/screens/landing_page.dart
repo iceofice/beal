@@ -26,8 +26,9 @@ class LandingPage extends StatelessWidget {
                   alignment: Alignment.center,
                   padding: const EdgeInsets.all(16),
                   child: const StyledTypography(
-                    text: "Home For Barterers",
-                    style: "h3",
+                    "Home For Barterers",
+                    style: "h2",
+                    weight: "light",
                   ),
                 ),
               ),
@@ -41,8 +42,9 @@ class LandingPage extends StatelessWidget {
                   alignment: Alignment.center,
                   padding: const EdgeInsets.all(16),
                   child: const StyledTypography(
-                    text: "Let's begin your barter journey!",
+                    "Let's begin your barter journey!",
                     style: "h4",
+                    weight: "light",
                   ),
                 ),
               ),

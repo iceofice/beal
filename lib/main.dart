@@ -27,7 +27,9 @@ class MyApp extends StatelessWidget {
         unselectedWidgetColor: Colors.transparent,
       ),
       debugShowCheckedModeBanner: false,
-      home: const LandingPage(),
+      home: const SafeArea(
+        child: LandingPage(),
+      ),
     );
   }
 }

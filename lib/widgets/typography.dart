@@ -4,83 +4,107 @@ import '../utils/colors.dart';
 class StyledTypography extends StatelessWidget {
   final String text;
   final String style;
+  final String? weight;
+  final Color color;
 
-  const StyledTypography({
+  const StyledTypography(
+    this.text, {
     Key? key,
-    required this.text,
     this.style = "normal",
+    this.weight,
+    this.color = neutralColor,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Text(
       text,
-      style: _textStyle(style),
+      style: textStyle(style, weight!, color),
     );
   }
 }
 
-_textStyle(String style) {
+_fontWeight(String weight) {
+  switch (weight) {
+    case "light":
+      return FontWeight.w300;
+    case "regular":
+      return FontWeight.w400;
+    case "medium":
+      return FontWeight.w500;
+    case "semibold":
+      return FontWeight.w600;
+    case "bold":
+      return FontWeight.w700;
+    case "extrabold":
+      return FontWeight.w800;
+  }
+}
+
+textStyle(String style, String? weight, Color color) {
   switch (style) {
     case "h1":
-      return const TextStyle(
+      return TextStyle(
         fontSize: 32,
-        fontWeight: FontWeight.bold,
-        color: neutralColor,
+        fontWeight: _fontWeight(weight ?? "extrabold"),
+        color: color,
+        letterSpacing: -0.25,
       );
     case "h2":
-      return const TextStyle(
+      return TextStyle(
         fontSize: 24,
-        fontWeight: FontWeight.bold,
-        color: neutralColor,
+        fontWeight: _fontWeight(weight ?? "bold"),
+        color: color,
+        letterSpacing: -0.25,
       );
     case "h3":
-      return const TextStyle(
+      return TextStyle(
         fontSize: 20,
-        fontWeight: FontWeight.bold,
-        color: neutralColor,
+        fontWeight: _fontWeight(weight ?? "bold"),
+        color: color,
+        letterSpacing: -0.25,
       );
     case "h4":
-      return const TextStyle(
+      return TextStyle(
         fontSize: 18,
-        color: neutralColor,
+        fontWeight: _fontWeight(weight ?? "bold"),
+        color: color,
+        letterSpacing: -0.25,
       );
     case "h5":
-      return const TextStyle(
+      return TextStyle(
         fontSize: 16,
-        color: neutralColor,
+        fontWeight: _fontWeight(weight ?? "bold"),
+        color: color,
+        letterSpacing: -0.25,
       );
     case "h6":
-      return const TextStyle(
+      return TextStyle(
         fontSize: 14,
-        color: neutralColor,
+        fontWeight: _fontWeight(weight ?? "bold"),
+        color: color,
+        letterSpacing: -0.25,
       );
     case "button":
-      return const TextStyle(
-        fontSize: 16,
-        color: neutralColor,
-        fontWeight: FontWeight.bold,
+      return TextStyle(
+        fontSize: 14,
+        fontWeight: _fontWeight(weight ?? "bold"),
+        color: color,
+        letterSpacing: 0.5,
       );
     case "normal":
-      return const TextStyle(
+      return TextStyle(
         fontSize: 16,
-        color: neutralColor,
+        fontWeight: _fontWeight(weight ?? "regular"),
+        color: color,
+        letterSpacing: 0.5,
       );
     case "small":
-      return const TextStyle(
-        fontSize: 14,
-        color: neutralColor,
-      );
-    case "bold":
-      return const TextStyle(
-        fontSize: 16,
-        color: neutralColor,
-        fontWeight: FontWeight.bold,
-      );
-    default:
-      return const TextStyle(
-        fontSize: 16,
-        color: neutralColor,
+      return TextStyle(
+        fontSize: 12,
+        fontWeight: _fontWeight(weight ?? "light"),
+        color: color,
+        letterSpacing: 0.5,
       );
   }
 }
