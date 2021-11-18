@@ -21,7 +21,9 @@ class MyApp extends StatelessWidget {
         fontFamily: 'Mulish',
       ),
       debugShowCheckedModeBanner: false,
-      home: LandingPage(),
+      home: const SafeArea(
+        child: LandingPage(),
+      ),
     );
   }
 }
