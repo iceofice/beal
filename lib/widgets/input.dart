@@ -25,6 +25,14 @@ class InputText extends StatefulWidget {
 
 class _InputTextState extends State<InputText> {
   bool _focus = false;
+  bool _obscureText = false;
+
+  @override
+  void initState() {
+    super.initState();
+    _obscureText = widget.isPassword;
+  }
+
   @override
   Widget build(BuildContext context) {
     return Focus(
@@ -48,7 +56,7 @@ class _InputTextState extends State<InputText> {
         ),
         style: textStyle("normal", "regular", neutralColor),
         controller: widget.controller,
-        obscureText: widget.isPassword,
+        obscureText: _obscureText,
         keyboardType: widget.keyboardType,
         validator: widget.validator,
       ),
