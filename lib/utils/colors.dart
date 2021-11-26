@@ -10,3 +10,4 @@ const MaterialColor neutralColor = MaterialColor(
   },
 );
 const backgroundColor = Color(0xff031956);
+const errorColor = Color(0xffff3838);

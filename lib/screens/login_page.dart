@@ -14,6 +14,7 @@ class LoginPage extends StatefulWidget {
 class _LoginPageState extends State<LoginPage> {
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
+  final _formKey = GlobalKey<FormState>();
 
   bool _rememberMe = false;
 
@@ -43,72 +44,87 @@ class _LoginPageState extends State<LoginPage> {
               ),
               SizedBox(
                 width: MediaQuery.of(context).size.width * 0.8,
-                child: Column(
-                  children: [
-                    InputText(
-                      "Username",
-                      controller: _emailController,
-                    ),
-                    InputText(
-                      "Password",
-                      controller: _passwordController,
-                      isPassword: true,
-                      icon: Icons.lock,
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Row(
-                          children: [
-                            Container(
-                              alignment: Alignment.center,
-                              width: 14,
-                              height: 14,
-                              margin: const EdgeInsets.only(right: 10),
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(3),
+                child: Form(
+                  key: _formKey,
+                  child: Column(
+                    children: [
+                      InputText(
+                        "Username",
+                        controller: _emailController,
+                        validator: (value) {
+                          if (value == null || value.isEmpty) {
+                            return 'Please enter some text';
+                          }
+                          return null;
+                        },
+                      ),
+                      InputText(
+                        "Password",
+                        controller: _passwordController,
+                        isPassword: true,
+                        icon: Icons.lock,
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Row(
+                            children: [
+                              Container(
+                                alignment: Alignment.center,
+                                width: 14,
+                                height: 14,
+                                margin: const EdgeInsets.only(right: 10),
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(3),
+                                  color: neutralColor[0],
+                                ),
+                                child: Checkbox(
+                                  value: _rememberMe,
+                                  onChanged: (bool? value) => setState(
+                                    () => _rememberMe = value!,
+                                  ),
+                                  checkColor: backgroundColor,
+                                  activeColor: secondaryColor,
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(3),
+                                  ),
+                                ),
+                              ),
+                              StyledTypography(
+                                "Remember me",
+                                style: "small",
                                 color: neutralColor[0],
                               ),
-                              child: Checkbox(
-                                value: _rememberMe,
-                                onChanged: (bool? value) => setState(
-                                  () => _rememberMe = value!,
-                                ),
-                                checkColor: backgroundColor,
-                                activeColor: secondaryColor,
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(3),
-                                ),
-                              ),
-                            ),
-                            StyledTypography(
-                              "Remember me",
+                            ],
+                          ),
+                          TextButton(
+                            onPressed: () {},
+                            child: StyledTypography(
+                              "Forgot Password?",
                               style: "small",
+                              weight: "bold",
                               color: neutralColor[0],
                             ),
-                          ],
-                        ),
-                        TextButton(
-                          onPressed: () {},
-                          child: StyledTypography(
-                            "Forgot Password?",
-                            style: "small",
-                            weight: "bold",
-                            color: neutralColor[0],
+                            style: TextButton.styleFrom(
+                              padding: EdgeInsets.zero,
+                            ),
                           ),
-                          style: TextButton.styleFrom(
-                            padding: EdgeInsets.zero,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ],
+                        ],
+                      ),
+                    ],
+                  ),
                 ),
               ),
               Padding(
                 padding: const EdgeInsets.only(top: 24.0, bottom: 8.0),
                 child: StyledButton(
-                  onPressed: () => {},
+                  onPressed: () {
+                    if (_formKey.currentState!.validate()) {
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        const SnackBar(content: Text('Processing Data')),
+                      );
+                    }
+                  },
                   buttonText: "Login",
                 ),
               ),
