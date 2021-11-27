@@ -3,20 +3,23 @@ import 'package:beal/utils/colors.dart';
 import 'package:beal/widgets/typography.dart';
 
 class InputText extends StatefulWidget {
+  final String labelText;
   final TextEditingController controller;
   final IconData icon;
-  final String labelText;
-  final bool isPassword;
   final TextInputType keyboardType;
   final String? Function(String?)? validator;
+  final bool isPassword;
+  final bool isLast;
+
   const InputText(
     this.labelText, {
     Key? key,
     required this.controller,
-    this.icon = Icons.person,
-    this.isPassword = false,
+    required this.icon,
     this.keyboardType = TextInputType.text,
     this.validator,
+    this.isPassword = false,
+    this.isLast = false,
   }) : super(key: key);
 
   @override
@@ -26,6 +29,7 @@ class InputText extends StatefulWidget {
 class _InputTextState extends State<InputText> {
   bool _obscureText = false;
   final _focus = FocusNode();
+  IconData suffixIcon = Icons.visibility_outlined;
 
   @override
   void initState() {
@@ -41,15 +45,39 @@ class _InputTextState extends State<InputText> {
     _focus.dispose();
   }
 
+  // Toggling Visibility of Password Field
+  void toogleObscureText() {
+    setState(() {
+      _obscureText = !_obscureText;
+      if (_obscureText) {
+        suffixIcon = Icons.visibility_outlined;
+      } else {
+        suffixIcon = Icons.visibility_off_outlined;
+      }
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
+    Color iconColor = _focus.hasFocus ? secondaryColor : neutralColor;
+
     return TextFormField(
       decoration: InputDecoration(
         icon: Icon(
           widget.icon,
           size: 20,
-          color: _focus.hasFocus ? secondaryColor : neutralColor,
+          color: iconColor,
         ),
+        suffixIcon: widget.isPassword
+            ? IconButton(
+                icon: Icon(
+                  suffixIcon,
+                  size: 20,
+                  color: iconColor,
+                ),
+                onPressed: toogleObscureText,
+              )
+            : null,
         labelText: widget.labelText,
         labelStyle: textStyle("normal", "regular", neutralColor),
         errorStyle: textStyle("small", "bold", errorColor),
@@ -64,9 +92,8 @@ class _InputTextState extends State<InputText> {
       obscureText: _obscureText,
       keyboardType: widget.keyboardType,
       validator: widget.validator,
-
-      /// Change to done if the last child
-      textInputAction: TextInputAction.next,
+      textInputAction:
+          widget.isLast ? TextInputAction.done : TextInputAction.next,
       autofocus: true,
       focusNode: _focus,
     );

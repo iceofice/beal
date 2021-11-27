@@ -51,6 +51,7 @@ class _LoginPageState extends State<LoginPage> {
                       InputText(
                         "Username",
                         controller: _emailController,
+                        icon: Icons.person,
                         validator: (value) {
                           if (value == null || value.isEmpty) {
                             return 'Please enter some text';
@@ -61,8 +62,9 @@ class _LoginPageState extends State<LoginPage> {
                       InputText(
                         "Password",
                         controller: _passwordController,
-                        isPassword: true,
                         icon: Icons.lock,
+                        isPassword: true,
+                        isLast: true,
                       ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
