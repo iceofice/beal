@@ -7,7 +7,7 @@ class InputText extends StatefulWidget {
   final TextEditingController controller;
   final IconData icon;
   final TextInputType keyboardType;
-  final String? Function(String?)? validator;
+  final List<String> validator;
   final bool isPassword;
   final bool isLast;
 
@@ -17,7 +17,7 @@ class InputText extends StatefulWidget {
     required this.controller,
     required this.icon,
     this.keyboardType = TextInputType.text,
-    this.validator,
+    this.validator = const ["required"],
     this.isPassword = false,
     this.isLast = false,
   }) : super(key: key);
@@ -91,11 +91,34 @@ class _InputTextState extends State<InputText> {
       controller: widget.controller,
       obscureText: _obscureText,
       keyboardType: widget.keyboardType,
-      validator: widget.validator,
+      validator: (value) {
+        if (widget.validator.contains("required")) {
+          if (value == null || value.isEmpty) {
+            return errorMessage("required", widget.labelText);
+          }
+        }
+
+        if (widget.validator.contains("password")) {
+          if (value!.length < 3 || value.length > 20) {
+            return errorMessage("password", widget.labelText);
+          }
+        }
+      },
       textInputAction:
           widget.isLast ? TextInputAction.done : TextInputAction.next,
       autofocus: true,
       focusNode: _focus,
     );
+  }
+}
+
+errorMessage(String rules, String labelText) {
+  labelText = labelText.toLowerCase();
+  switch (rules) {
+    case "required":
+      return "Please fill in the $labelText.";
+
+    case "password":
+      return 'The $labelText must be 3 until 20 characters.';
   }
 }
