@@ -1,8 +1,10 @@
+import 'package:flutter/material.dart';
+
 import 'package:beal/utils/colors.dart';
 import 'package:beal/widgets/button.dart';
 import 'package:beal/widgets/input.dart';
+import 'package:beal/widgets/oauth.dart';
 import 'package:beal/widgets/typography.dart';
-import 'package:flutter/material.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -44,73 +46,7 @@ class _LoginPageState extends State<LoginPage> {
               ),
               SizedBox(
                 width: MediaQuery.of(context).size.width * 0.8,
-                child: Form(
-                  key: _formKey,
-                  child: Column(
-                    children: [
-                      InputText(
-                        "Username",
-                        controller: _emailController,
-                        icon: Icons.person,
-                      ),
-                      InputText(
-                        "Password",
-                        controller: _passwordController,
-                        icon: Icons.lock,
-                        isPassword: true,
-                        isLast: true,
-                        validator: const ["required", "password"],
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Row(
-                            children: [
-                              Container(
-                                alignment: Alignment.center,
-                                width: 14,
-                                height: 14,
-                                margin: const EdgeInsets.only(right: 10),
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(3),
-                                  color: neutralColor[0],
-                                ),
-                                child: Checkbox(
-                                  value: _rememberMe,
-                                  onChanged: (bool? value) => setState(
-                                    () => _rememberMe = value!,
-                                  ),
-                                  checkColor: backgroundColor,
-                                  activeColor: secondaryColor,
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(3),
-                                  ),
-                                ),
-                              ),
-                              StyledTypography(
-                                "Remember me",
-                                style: "small",
-                                color: neutralColor[0],
-                              ),
-                            ],
-                          ),
-                          TextButton(
-                            onPressed: () {},
-                            child: StyledTypography(
-                              "Forgot Password?",
-                              style: "small",
-                              weight: "bold",
-                              color: neutralColor[0],
-                            ),
-                            style: TextButton.styleFrom(
-                              padding: EdgeInsets.zero,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ],
-                  ),
-                ),
+                child: loginForm(),
               ),
               Padding(
                 padding: const EdgeInsets.only(top: 24.0, bottom: 8.0),
@@ -132,54 +68,78 @@ class _LoginPageState extends State<LoginPage> {
                   style: "small",
                 ),
               ),
-              Container(
-                margin: const EdgeInsets.only(top: 32.0),
-                child: Column(
-                  children: [
-                    SizedBox(
-                      width: 150,
-                      child: Row(
-                        children: const [
-                          Expanded(
-                            child: Divider(
-                              color: neutralColor,
-                              thickness: 2,
-                            ),
-                          ),
-                          Padding(
-                            padding: EdgeInsets.symmetric(
-                              horizontal: 7,
-                              vertical: 0,
-                            ),
-                            child: StyledTypography(
-                              "Login With",
-                              style: "small",
-                            ),
-                          ),
-                          Expanded(
-                            child: Divider(
-                              color: neutralColor,
-                              thickness: 2,
-                            ),
-                          ),
-                        ],
+              const OAuthContainer("Login With"),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+
+  Widget loginForm() {
+    return Form(
+      key: _formKey,
+      child: Column(
+        children: [
+          InputText(
+            "Username",
+            controller: _emailController,
+            icon: Icons.person,
+          ),
+          InputText(
+            "Password",
+            controller: _passwordController,
+            icon: Icons.lock,
+            isPassword: true,
+            isLast: true,
+            validator: const ["required", "invalid"],
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Row(
+                children: [
+                  Container(
+                    alignment: Alignment.center,
+                    width: 14,
+                    height: 14,
+                    margin: const EdgeInsets.only(right: 10),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(3),
+                      color: neutralColor[0],
+                    ),
+                    child: Checkbox(
+                      value: _rememberMe,
+                      onChanged: (bool? value) {},
+                      checkColor: backgroundColor,
+                      activeColor: secondaryColor,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(3),
                       ),
                     ),
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: IconButton(
-                        icon: const Icon(Icons.email),
-                        color: neutralColor,
-                        onPressed: () {},
-                        splashRadius: 20,
-                      ),
-                    ),
-                  ],
+                  ),
+                  StyledTypography(
+                    "Remember me",
+                    style: "small",
+                    color: neutralColor[0],
+                  ),
+                ],
+              ),
+              TextButton(
+                onPressed: () {},
+                child: StyledTypography(
+                  "Forgot Password?",
+                  style: "small",
+                  weight: "bold",
+                  color: neutralColor[0],
+                ),
+                style: TextButton.styleFrom(
+                  padding: EdgeInsets.zero,
                 ),
               ),
             ],
           ),
-        ),
+        ],
       ),
     );
   }

@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:beal/utils/colors.dart';
 import 'package:beal/widgets/button.dart';
 import 'package:beal/widgets/input.dart';
+import 'package:beal/widgets/oauth.dart';
 import 'package:beal/widgets/typography.dart';
 
 class RegisterPage extends StatefulWidget {
@@ -49,16 +50,20 @@ class _RegisterPageState extends State<RegisterPage> {
                       "E-mail Address",
                       controller: _emailController,
                       icon: Icons.alternate_email,
+                      validator: const ["required", "email"],
                     ),
                     InputText(
                       "Username",
                       controller: _userNameController,
+                      icon: Icons.person,
                     ),
                     InputText(
                       "Password",
                       controller: _passwordController,
-                      isPassword: true,
                       icon: Icons.lock,
+                      isPassword: true,
+                      isLast: true,
+                      validator: const ["required", "invalid"],
                     ),
                   ],
                 ),
@@ -77,51 +82,7 @@ class _RegisterPageState extends State<RegisterPage> {
                   style: "small",
                 ),
               ),
-              Container(
-                margin: const EdgeInsets.only(top: 32.0),
-                child: Column(
-                  children: [
-                    SizedBox(
-                      width: 150,
-                      child: Row(
-                        children: const [
-                          Expanded(
-                            child: Divider(
-                              color: neutralColor,
-                              thickness: 2,
-                            ),
-                          ),
-                          Padding(
-                            padding: EdgeInsets.symmetric(
-                              horizontal: 7,
-                              vertical: 0,
-                            ),
-                            child: StyledTypography(
-                              "Register With",
-                              style: "small",
-                            ),
-                          ),
-                          Expanded(
-                            child: Divider(
-                              color: neutralColor,
-                              thickness: 2,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: IconButton(
-                        icon: const Icon(Icons.email),
-                        color: neutralColor,
-                        onPressed: () {},
-                        splashRadius: 20,
-                      ),
-                    ),
-                  ],
-                ),
-              ),
+              const OAuthContainer("Register With"),
             ],
           ),
         ),

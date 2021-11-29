@@ -57,6 +57,40 @@ class _InputTextState extends State<InputText> {
     });
   }
 
+  String? validate(value) {
+    if (widget.validator.contains("required") &&
+        (value == null || value.isEmpty)) {
+      return errorMessage("required", widget.labelText);
+    }
+
+    if (widget.validator.contains("invalid") &&
+        (value!.length < 3 || value.length > 20)) {
+      return errorMessage("invalid", widget.labelText);
+    }
+
+    if (widget.validator.contains("email")) {
+      RegExp emailRegex = RegExp(
+          r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+");
+      if (!emailRegex.hasMatch(value!)) {
+        return errorMessage("email", widget.labelText);
+      }
+    }
+  }
+
+  String? errorMessage(String rules, String labelText) {
+    labelText = labelText.toLowerCase();
+    switch (rules) {
+      case "required":
+        return "Please fill in the $labelText.";
+
+      case "invalid":
+        return 'The $labelText must be 3 until 20 characters.';
+
+      case "email":
+        return 'The $labelText must be a valid email address';
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     Color iconColor = _focus.hasFocus ? secondaryColor : neutralColor;
@@ -91,34 +125,11 @@ class _InputTextState extends State<InputText> {
       controller: widget.controller,
       obscureText: _obscureText,
       keyboardType: widget.keyboardType,
-      validator: (value) {
-        if (widget.validator.contains("required")) {
-          if (value == null || value.isEmpty) {
-            return errorMessage("required", widget.labelText);
-          }
-        }
-
-        if (widget.validator.contains("password")) {
-          if (value!.length < 3 || value.length > 20) {
-            return errorMessage("password", widget.labelText);
-          }
-        }
-      },
+      validator: validate,
       textInputAction:
           widget.isLast ? TextInputAction.done : TextInputAction.next,
       autofocus: true,
       focusNode: _focus,
     );
-  }
-}
-
-errorMessage(String rules, String labelText) {
-  labelText = labelText.toLowerCase();
-  switch (rules) {
-    case "required":
-      return "Please fill in the $labelText.";
-
-    case "password":
-      return 'The $labelText must be 3 until 20 characters.';
   }
 }
