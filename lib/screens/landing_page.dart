@@ -1,8 +1,9 @@
-import 'package:beal/widgets/widgets.dart';
-import 'package:beal/utils/colors.dart';
 import 'package:flutter/material.dart';
-import '../utils/colors.dart';
-import 'login_page.dart';
+
+import 'package:beal/screens/register_page.dart';
+import 'package:beal/screens/login_page.dart';
+import 'package:beal/utils/colors.dart';
+import 'package:beal/widgets/widgets.dart';
 
 class LandingPage extends StatelessWidget {
   const LandingPage({Key? key}) : super(key: key);
@@ -52,7 +53,14 @@ class LandingPage extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   StyledButton(
-                    onPressed: () => {},
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const RegisterPage(),
+                        ),
+                      );
+                    },
                     buttonColor: primaryColor,
                     buttonText: "Register",
                     margin: 4,
